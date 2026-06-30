@@ -1,0 +1,282 @@
+/* ============================================================
+   layout.css — Estructura de la página.
+   Cada bloque es independiente: para mover o agregar una
+   sección, copiás un <section class="section"> y listo.
+   ============================================================ */
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 0.75rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-size: var(--fs-500);
+}
+.brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  gap: var(--sp-4);
+  margin-left: auto;
+}
+.nav a {
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+.nav a:hover {
+  color: var(--text);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-toggle {
+  display: none;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: var(--sp-6) 0;
+  overflow: hidden;
+}
+/*
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 55% at 50% 28%,
+    color-mix(in srgb, var(--accent) 20%, transparent),
+    transparent 70%
+  );
+}*/
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(50% 40% at 50% 22%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 70%),
+    radial-gradient(55% 45% at 50% 60%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%);
+}
+.hero__content {
+  position: relative;
+  max-width: 640px;
+  margin-inline: auto;
+  display: grid;
+  gap: var(--sp-3);
+  justify-items: center;
+}
+.hero__title {
+  font-size: var(--fs-800);
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+.hero__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-500);
+  color: var(--text-muted);
+}
+.hero__text {
+  color: var(--text-muted);
+  max-width: 48ch;
+}
+
+/* ---------- Sección (ritmo vertical único para todas) ---------- */
+.section {
+  padding: var(--sp-6) 0;
+}
+.section__head {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: var(--sp-5);
+}
+.section__head p {
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+/* ---------- Filtros ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: var(--sp-4);
+}
+
+/* ---------- Grilla genérica (responsive sin media queries) ---------- */
+.grid {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* ---------- Tarjeta de producto (reutiliza .panel) ---------- */
+.product {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.product__media {
+  aspect-ratio: 1;
+  background: var(--surface-alt);
+  overflow: hidden;
+}
+.product__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.product:hover .product__media img {
+  transform: scale(1.05);
+}
+.product__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--sp-3);
+  flex: 1;
+}
+.product__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-500);
+}
+.product__desc {
+  font-size: var(--fs-300);
+  color: var(--text-muted);
+  flex: 1;
+}
+.product__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.product__price {
+  font-weight: 700;
+  font-size: var(--fs-500);
+  color: var(--accent-hover);
+}
+
+/* ---------- Contacto ---------- */
+.contact {
+  display: grid;
+  gap: var(--sp-3);
+  justify-items: center;
+  text-align: center;
+  max-width: 520px;
+  margin-inline: auto;
+}
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--surface-alt);
+  border-top: 1px solid var(--border);
+  padding: var(--sp-5) 0;
+  margin-top: var(--sp-6);
+}
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: var(--fs-300);
+}
+
+/* ---------- Responsive: menú móvil ---------- */
+@media (max-width: 760px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 1.25rem;
+    left: 1.25rem;
+    flex-direction: column;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 0.5rem;
+    margin: 0;
+    display: none;
+  }
+  .nav.is-open {
+    display: flex;
+  }
+  .nav a {
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius-sm);
+  }
+  .nav a:hover {
+    background: var(--surface-alt);
+  }
+}
+/* ---------- Logo del hero ---------- */
+.hero__logo {
+  width: min(300px, 70vw);
+  height: auto;
+  margin-bottom: var(--sp-2);
+  filter: drop-shadow(0 8px 24px rgba(52, 42, 32, 0.2));
+  animation: logo-in 0.8s ease both;
+}
+@keyframes logo-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* En modo oscuro: un brillo turquesa en vez de la sombra marrón */
+[data-theme="dark"] .hero__logo {
+  filter: drop-shadow(0 0 26px rgba(47, 168, 184, 0.35));
+}
+/* ---------- Guarda decorativa del hero ---------- */
+.hero__guarda {
+  width: min(240px, 80vw);
+  height: auto;
+  opacity: .9;
+}

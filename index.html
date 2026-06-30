@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Runarka · Piedras con alma</title>
+    <meta
+      name="description"
+      content="Amuletos y pulseras de piedras naturales energéticas. Hechos a mano en la Patagonia."
+    />
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos (orden importa: tokens → base → componentes → layout → features) -->
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+  <body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="#inicio">
+          <img
+            src="assets/logo.png"
+            alt=""
+            onerror="this.style.display = 'none'"
+          />
+          Runarka
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="header-actions">
+          <!-- Toggle de modo oscuro (opcional, se puede quitar) -->
+          <button
+            class="icon-btn"
+            id="theme-toggle"
+            aria-label="Cambiar tema"
+            title="Modo claro/oscuro"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z" />
+            </svg>
+          </button>
+
+          <!-- Abrir carrito -->
+          <button class="icon-btn" id="cart-open" aria-label="Abrir carrito">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path
+                d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L23 6H6"
+              />
+            </svg>
+            <span class="badge" id="cart-count" hidden>0</span>
+          </button>
+
+          <!-- Menú móvil -->
+          <button
+            class="icon-btn nav-toggle"
+            id="nav-toggle"
+            aria-label="Abrir menú"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================== INICIO / HERO ===================== -->
+      <section class="section hero" id="inicio">
+        <div class="container hero__content">
+          <img
+            class="hero__logo"
+            src="assets/logo4.png"
+            alt="Runarka"
+            onerror="this.style.display = 'none'"
+          />
+          <h1 class="hero__title">Runarka</h1>
+          <span class="eyebrow">El lenguaje del alma</span>
+          <img class="hero__guarda" src="assets/guarda1.png" alt="" />
+          <p class="hero__tagline">Piedras con alma. Guía y protección.</p>
+          <p class="hero__text">
+            Amuletos y pulseras de piedras naturales energéticas, hechos a mano
+            en la Patagonia. Cada pieza acompaña un proceso.
+          </p>
+          <a class="btn btn--primary" href="#catalogo">Ver catálogo</a>
+        </div>
+      </section>
+
+      <!-- ===================== CATÁLOGO ===================== -->
+      <section class="section" id="catalogo">
+        <div class="container">
+          <div class="section__head">
+            <div class="rune-divider">ᚱ</div>
+            <h2>Catálogo</h2>
+            <p>
+              Elegí tus piezas y armá el pedido. Lo terminamos juntas por
+              WhatsApp.
+            </p>
+          </div>
+
+          <div class="filters" id="catalogo-filtros">
+            <!-- filtros dinámicos -->
+          </div>
+          <div class="grid" id="catalogo-grid">
+            <!-- productos dinámicos -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACTO ===================== -->
+      <section class="section" id="contacto">
+        <div class="container">
+          <div class="contact">
+            <div class="rune-divider">ᚱ</div>
+            <h2>Contacto</h2>
+            <p class="muted">
+              Escribinos y coordinamos tu pedido. Pago en efectivo o
+              transferencia.
+            </p>
+            <div class="contact__links">
+              <a
+                class="btn btn--primary"
+                id="contacto-wa"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                >Escribir por WhatsApp</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://www.instagram.com/runarka_ng/"
+                target="_blank"
+                rel="noopener"
+                >Instagram</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span
+          >© <span id="year"></span> Runarka · Neuquén, Patagonia
+          Argentina</span
+        >
+        <span>Piedras naturales energéticas</span>
+      </div>
+    </footer>
+
+    <!-- ===================== CARRITO (drawer) ===================== -->
+    <div class="overlay" id="overlay"></div>
+    <aside class="cart" id="cart" aria-label="Carrito de compras">
+      <div class="cart__head">
+        <h3>Tu pedido</h3>
+        <button class="icon-btn" id="cart-close" aria-label="Cerrar carrito">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="cart__items" id="cart-items"><!-- items dinámicos --></div>
+
+      <div class="cart__foot">
+        <div class="cart__total">
+          <span>Total</span><span id="cart-total">$0</span>
+        </div>
+        <button class="btn btn--primary btn--block" id="cart-checkout">
+          Finalizar por WhatsApp
+        </button>
+        <button class="btn btn--ghost btn--block btn--sm" id="cart-clear">
+          Vaciar carrito
+        </button>
+        <p class="cart__note">
+          Coordinás el pago y la entrega directamente por WhatsApp.
+        </p>
+      </div>
+    </aside>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

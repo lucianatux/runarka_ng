@@ -1,0 +1,84 @@
+/* ============================================================
+   tokens.css — Variables de diseño (la "fuente de la verdad")
+   Cambiás algo acá y se actualiza TODO el sitio.
+   No uses colores sueltos en los componentes: usá los roles.
+   ============================================================ */
+
+:root {
+  /* --- Paleta de marca (sacada del logo de Runarka) --- */
+  --c-sand:        #efe4ce;   /* fondo principal, pergamino  */
+  --c-surface:     #fbf6ec;   /* tarjetas y paneles          */
+  --c-surface-2:   #f3ead8;   /* paneles alternos / hover    */
+  --c-ink:         #683d13;   /* texto principal             */
+  --c-ink-soft:    #7a6a55;   /* texto secundario            */
+  --c-gold:        #b68a3e;   /* dorado, acento de marca     */
+  --c-gold-soft:   #d4af61;
+  --c-teal:        #1e7f92;   /* turquesa, acción principal  */
+  --c-teal-strong: #186575;
+  --c-teal-soft:   #2fa8b8;
+  --c-line:        #e0d2b6;   /* bordes suaves               */
+  --c-danger:      #b4493b;
+
+  /* --- Roles semánticos (USÁ ESTOS en los componentes) --- */
+  --bg:           var(--c-sand);
+  --surface:      var(--c-surface);
+  --surface-alt:  var(--c-surface-2);
+  --text:         var(--c-ink);
+  --text-muted:   var(--c-ink-soft);
+  --accent:       var(--c-teal);
+  --accent-hover: var(--c-teal-strong);
+  --accent-2:     var(--c-gold);
+  --on-accent:    #ffffff;
+  --on-gold:      #2a2019;
+  --border:       var(--c-line);
+
+  /* --- Tipografía --- */
+  --font-display: "Cinzel", Georgia, "Times New Roman", serif;
+  --font-body:    "Outfit", system-ui, -apple-system, Segoe UI, sans-serif;
+
+  --fs-300: .82rem;
+  --fs-400: 1rem;
+  --fs-500: 1.2rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: clamp(2.2rem, 5vw, 3.4rem);
+
+  /* --- Espaciado (escala consistente) --- */
+  --sp-1: .35rem;
+  --sp-2: .6rem;
+  --sp-3: 1rem;
+  --sp-4: 1.5rem;
+  --sp-5: 2.5rem;
+  --sp-6: 4rem;
+
+  /* --- Formas, sombras, movimiento --- */
+  --radius:      14px;
+  --radius-sm:   8px;
+  --radius-pill: 999px;
+  --shadow:      0 6px 24px rgba(52, 42, 32, .10);
+  --shadow-lg:   0 14px 40px rgba(52, 42, 32, .18);
+  --transition:  .25s ease;
+
+  /* --- Layout --- */
+  --container: 1140px;
+}
+
+/* ============================================================
+   MODO OSCURO — listo para usar.
+   Se activa con  <html data-theme="dark">  (lo hace el toggle).
+   Solo redefinimos los ROLES; los componentes no se tocan.
+   ============================================================ */
+[data-theme="dark"] {
+  --bg:           #14181f;
+  --surface:      #1c222c;
+  --surface-alt:  #232b37;
+  --text:         #f1e7d4;
+  --text-muted:   #a99e88;
+  --accent:       #2fa8b8;
+  --accent-hover: #46c0d0;
+  --accent-2:     #d4af61;
+  --on-accent:    #0d1117;
+  --border:       #2c333f;
+  --shadow:       0 6px 24px rgba(0, 0, 0, .35);
+  --shadow-lg:    0 14px 40px rgba(0, 0, 0, .5);
+}

@@ -1,0 +1,46 @@
+/* ============================================================
+   cart.css — Carrito lateral (drawer) + overlay.
+   Es una "feature": si algún día sacás el carrito, borrás
+   este archivo y su <link>, y el resto del sitio sigue igual.
+   ============================================================ */
+
+.overlay {
+  position: fixed; inset: 0; z-index: 70;
+  background: rgba(20, 16, 12, .5);
+  opacity: 0; visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+.overlay.is-open { opacity: 1; visibility: visible; }
+
+.cart {
+  position: fixed; top: 0; right: 0; z-index: 80;
+  height: 100%; width: min(420px, 100%);
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  transform: translateX(100%);
+  transition: transform var(--transition);
+}
+.cart.is-open { transform: translateX(0); }
+
+.cart__head, .cart__foot { padding: var(--sp-4); }
+.cart__head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.cart__head h3 { font-size: var(--fs-600); }
+
+.cart__items {
+  flex: 1; overflow-y: auto;
+  padding: var(--sp-3) var(--sp-4);
+  display: grid; gap: var(--sp-3); align-content: start;
+}
+.cart__empty { margin: auto; text-align: center; color: var(--text-muted); padding: var(--sp-5); }
+
+.cart-item { display: grid; grid-template-columns: 56px 1fr auto; gap: .8rem; align-items: start; }
+.cart-item__img  { width: 56px; height: 56px; border-radius: var(--radius-sm); object-fit: cover; background: var(--surface-alt); }
+.cart-item__name { font-weight: 600; font-size: var(--fs-300); }
+.cart-item__price{ color: var(--text-muted); font-size: var(--fs-300); margin-bottom: .35rem; }
+.cart-item__remove { color: var(--text-muted); font-size: 1.3rem; line-height: 1; padding: 0 .25rem; }
+.cart-item__remove:hover { color: var(--c-danger); }
+
+.cart__foot { border-top: 1px solid var(--border); display: grid; gap: var(--sp-3); }
+.cart__total { display: flex; align-items: baseline; justify-content: space-between; font-weight: 700; font-size: var(--fs-500); }
+.cart__note  { font-size: var(--fs-300); color: var(--text-muted); text-align: center; }

@@ -1,0 +1,73 @@
+{
+  "_ayuda": "Editá SOLO los textos entre comillas y los precios (números, sin puntos ni signos). No borres las comas ni las llaves. Cada producto necesita un 'id' único.",
+
+  "tienda": {
+    "nombre": "Runarka",
+    "whatsapp": "5493512309375",
+    "moneda": "$",
+    "mensajeIntro": "¡Hola Runarka! Quiero hacer este pedido:"
+  },
+
+  "categorias": [
+    { "id": "pulseras", "nombre": "Pulseras" },
+    { "id": "amuletos", "nombre": "Amuletos" },
+    { "id": "kits",     "nombre": "Kits" }
+  ],
+
+  "productos": [
+    {
+      "id": "amatista",
+      "nombre": "Pulsera Amatista",
+      "categoria": "amuletos",
+      "precio": 15000,
+      "imagen": "assets/foto1.jpg",
+      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "disponible": true
+    },
+    {
+      "id": "fluorita",
+      "nombre": "Fluorita",
+      "categoria": "pulseras",
+      "precio": 14000,
+      "imagen": "assets/foto2.jpg",
+      "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
+      "disponible": true
+    },
+    {
+      "id": "cuarzo-rosa",
+      "nombre": "Cuarzo Rosa",
+      "categoria": "pulseras",
+      "precio": 13000,
+      "imagen": "assets/foto3.jpg",
+      "descripcion": "Enseña a amarse sin exigencias. Amor propio y ternura.",
+      "disponible": true
+    },
+    {
+      "id": "ojo-de-tigre",
+      "nombre": "Ojo de Tigre",
+      "categoria": "pulseras",
+      "precio": 14500,
+      "imagen": "assets/foto4.jpg",
+      "descripcion": "Recuerda quién sos. Protección y enraizamiento.",
+      "disponible": true
+    },
+    {
+      "id": "kit-calma-mental",
+      "nombre": "Kit Calma Mental",
+      "categoria": "kits",
+      "precio": 22000,
+      "imagen": "assets/foto5.jpg",
+      "descripcion": "Howlite, cuarzo azul, amazonita y amatista. Baja el ruido interno y vuelve a tu centro.",
+      "disponible": true
+    },
+    {
+      "id": "kit-accion-confianza",
+      "nombre": "Kit Acción y Confianza",
+      "categoria": "kits",
+      "precio": 22000,
+      "imagen": "assets/foto6.jpg",
+      "descripcion": "Ojo de halcón, jaspe sanguíneo, jade limón y cuarzo cristal. Para dejar de dudar y empezar a hacer.",
+      "disponible": true
+    }
+  ]
+}
