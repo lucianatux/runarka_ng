@@ -240,7 +240,6 @@
 .hero__logo {
   width: min(300px, 70vw);
   height: auto;
-  margin-bottom: var(--sp-2);
   filter: var(--logo-filter) var(--logo-glow);
   transition: filter var(--transition);
   animation: logo-in 0.8s ease both;
