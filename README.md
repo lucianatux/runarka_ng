@@ -9,7 +9,7 @@ Sin pasarela de pago. El pago se coordina por WhatsApp (efectivo o transferencia
 runarka/
 ├── index.html            ← la página (estructura/secciones)
 ├── productos.json        ← LO QUE EDITA LA CLIENTA (productos y precios)
-├── assets/               ← fotos y logo (logo.png, foto1.jpg, ...)
+├── assets/               ← fotos y logo (logo.png, foto1.webp, ...)
 ├── css/
 │   ├── tokens.css        ← colores, tipografía, espaciado (cambiás acá → cambia todo)
 │   ├── base.css          ← reset y tipografía base
@@ -33,7 +33,7 @@ una función no rompe el resto.
 Se edita **solo** `productos.json`. Reglas:
 - Cambiar precios: solo el número (`"precio": 15000`), sin puntos ni `$`.
 - Cada producto necesita un `id` único (sin espacios ni acentos).
-- La `imagen` apunta a un archivo dentro de `assets/` (ej: `assets/foto1.jpg`).
+- La `imagen` apunta a un archivo dentro de `assets/` (ej: `assets/productos/foto1.webp`).
 - Para ocultar un producto sin borrarlo: poné `"disponible": false`.
 - No borrar comas ni llaves. Si algo falla, suele ser una coma de más o de menos.
 
@@ -72,9 +72,9 @@ Herramientas:
 - **Squoosh** (https://squoosh.app) — web, sin instalar. Arrastrás la foto,
   elegís WebP, calidad ~80, redimensionás a 800px y descargás. Ideal para la clienta.
 - **ImageMagick** (terminal):
-  `magick foto.jpg -resize 800x800^ -gravity center -extent 800x800 -strip -quality 82 assets/foto1.webp`
+  `magick foto.webp -resize 800x800^ -gravity center -extent 800x800 -strip -quality 82 assets/foto1.webp`
 - **cwebp** (terminal):
-  `cwebp -q 80 -resize 800 0 foto.jpg -o assets/foto1.webp`
+  `cwebp -q 80 -resize 800 0 foto.webp -o assets/productos/foto1.webp`
 
 > El `<img>` ya usa `loading="lazy"` y hay un placeholder si falta una foto,
 > así nunca se ve roto.

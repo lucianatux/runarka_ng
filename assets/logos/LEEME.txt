@@ -1,7 +1,7 @@
 Acá van las imágenes del sitio.
 
 - logo.png            → logo de Runarka (header). Idealmente PNG con fondo transparente.
-- foto1.jpg, foto2... → fotos de los productos (mejor optimizadas a ~800x800, ver README).
+- foto1.webp, foto2... → fotos de los productos (mejor optimizadas a ~800x800, ver README).
 
 Los nombres tienen que coincidir con lo que pusiste en productos.json
-(campo "imagen", ej: "assets/foto1.jpg").
+(campo "imagen", ej: "assets/productos/foto1.webp").
