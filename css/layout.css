@@ -30,9 +30,11 @@
   font-size: var(--fs-500);
 }
 .brand img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
+  filter: var(--logo-filter);
+  transition: filter var(--transition);
 }
 
 .nav {
@@ -64,24 +66,6 @@
   text-align: center;
   padding: var(--sp-6) 0;
   overflow: hidden;
-}
-/*
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    60% 55% at 50% 28%,
-    color-mix(in srgb, var(--accent) 20%, transparent),
-    transparent 70%
-  );
-}*/
-.hero::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(50% 40% at 50% 22%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 70%),
-    radial-gradient(55% 45% at 50% 60%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%);
 }
 .hero__content {
   position: relative;
@@ -257,7 +241,8 @@
   width: min(300px, 70vw);
   height: auto;
   margin-bottom: var(--sp-2);
-  filter: drop-shadow(0 8px 24px rgba(52, 42, 32, 0.2));
+  filter: var(--logo-filter) var(--logo-glow);
+  transition: filter var(--transition);
   animation: logo-in 0.8s ease both;
 }
 @keyframes logo-in {
@@ -270,13 +255,10 @@
     transform: translateY(0) scale(1);
   }
 }
-/* En modo oscuro: un brillo turquesa en vez de la sombra marrón */
-[data-theme="dark"] .hero__logo {
-  filter: drop-shadow(0 0 26px rgba(47, 168, 184, 0.35));
-}
+
 /* ---------- Guarda decorativa del hero ---------- */
 .hero__guarda {
   width: min(240px, 80vw);
   height: auto;
-  opacity: .9;
+  opacity: 0.9;
 }

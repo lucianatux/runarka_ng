@@ -2,44 +2,99 @@
    base.css — Reset suave, tipografía base y utilidades.
    ============================================================ */
 
-*, *::before, *::after { box-sizing: border-box; }
-* { margin: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-body);
   font-size: var(--fs-400);
   line-height: 1.6;
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(55% 50% at 8% 8%, var(--neb-1), transparent 75%),
+    radial-gradient(55% 50% at 92% 12%, var(--neb-2), transparent 75%),
+    radial-gradient(60% 55% at 88% 92%, var(--neb-3), transparent 75%),
+    radial-gradient(55% 50% at 10% 90%, var(--neb-4), transparent 75%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   -webkit-font-smoothing: antialiased;
-  transition: background var(--transition), color var(--transition);
+  transition:
+    background var(--transition),
+    color var(--transition);
 }
 
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; cursor: pointer; background: none; border: none; }
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.15;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
 }
-h2 { font-size: var(--fs-700); }
-h3 { font-size: var(--fs-500); }
+h2 {
+  font-size: var(--fs-700);
+}
+h3 {
+  font-size: var(--fs-500);
+}
 
 /* --- Utilidades --- */
-.container { width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
-.muted     { color: var(--text-muted); }
-.center    { text-align: center; }
-.stack     { display: grid; gap: var(--sp-3); }
-[hidden]   { display: none !important; }
+.container {
+  width: min(100% - 2.5rem, var(--container));
+  margin-inline: auto;
+}
+.muted {
+  color: var(--text-muted);
+}
+.center {
+  text-align: center;
+}
+.stack {
+  display: grid;
+  gap: var(--sp-3);
+}
+[hidden] {
+  display: none !important;
+}
 
 /* --- Accesibilidad --- */
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
