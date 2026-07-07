@@ -4,6 +4,7 @@
 // ============================================================
 
 import { formatearPrecio, calcularTotal, armarLinkWhatsApp } from "./whatsapp.js";
+import { imagenPrincipal } from "./producto.js";
 
 export function crearVistaCarrito({ refs, tienda, productosPorId, carrito }) {
   const { drawer, overlay, lista, totalEl, contador, btnCheckout, btnVaciar } = refs;
@@ -16,7 +17,7 @@ export function crearVistaCarrito({ refs, tienda, productosPorId, carrito }) {
     const row = document.createElement("div");
     row.className = "cart-item";
     row.innerHTML = `
-      <img class="cart-item__img" src="${p.imagen || ""}" alt="${p.nombre}"
+      <img class="cart-item__img" src="${imagenPrincipal(p)}" alt="${p.nombre}"
            onerror="this.style.visibility='hidden'">
       <div>
         <div class="cart-item__name">${p.nombre}</div>

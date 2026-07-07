@@ -130,9 +130,55 @@
   overflow: hidden;
 }
 .product__media {
+  position: relative; /* ancla los puntitos de la galería */
   aspect-ratio: 1;
   background: var(--surface-alt);
   overflow: hidden;
+}
+
+/* ---------- Galería del producto (varias fotos) ----------
+   Reutiliza .product__media. Swipe nativo con scroll-snap:
+   casi sin JS. Con 1 sola foto se ve idéntico a antes. */
+.product__track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+.product__track::-webkit-scrollbar {
+  display: none; /* WebKit: sin barra */
+}
+.product__track img {
+  min-width: 100%;
+  scroll-snap-align: center;
+}
+.product__dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  pointer-events: none; /* solo los puntitos son clickeables */
+}
+.product__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--on-accent) 60%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text) 25%, transparent);
+  pointer-events: auto;
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+.product__dot.is-active {
+  background: var(--accent);
+  transform: scale(1.3);
 }
 .product__media img {
   width: 100%;

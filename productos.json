@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Editá SOLO los textos entre comillas y los precios (números, sin puntos ni signos). No borres las comas ni las llaves. Cada producto necesita un 'id' único.",
+  "_ayuda": "Editá SOLO los textos entre comillas y los precios (números, sin puntos ni signos). 'imagenes' es una LISTA: la primera foto es la portada; para sumar más, agregalas separadas por coma dentro de los corchetes. No borres las comas ni las llaves. Cada producto necesita un 'id' único.",
 
   "tienda": {
     "nombre": "Runarka",
@@ -9,9 +9,9 @@
   },
 
   "categorias": [
-    { "id": "pulseras", "nombre": "Pulseras" },
-    { "id": "amuletos", "nombre": "Amuletos" },
-    { "id": "kits",     "nombre": "Kits" },
+    { "id": "pulseras",  "nombre": "Pulseras" },
+    { "id": "amuletos",  "nombre": "Amuletos" },
+    { "id": "kits",      "nombre": "Kits" },
     { "id": "cristales", "nombre": "Cristales" }
   ],
 
@@ -21,7 +21,9 @@
       "nombre": "Pulsera 01",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera01.webp",
+      "imagenes": [
+        "assets/productos/pulsera01.webp", "assets/productos/pulsera02.webp", "assets/productos/pulsera03.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
     },
@@ -30,111 +32,152 @@
       "nombre": "Pulsera 02",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera02.webp",
+      "imagenes": [
+        "assets/productos/pulsera02.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera03",
       "nombre": "Pulsera 03",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera03.webp",
+      "imagenes": [
+        "assets/productos/pulsera03.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera04",
       "nombre": "Pulsera 04",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera04.webp",
+      "imagenes": [
+        "assets/productos/pulsera04.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera05",
       "nombre": "Pulsera 05",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera05.webp",
+      "imagenes": [
+        "assets/productos/pulsera05.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera06",
       "nombre": "Pulsera 06",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera06.webp",
+      "imagenes": [
+        "assets/productos/pulsera06.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera07",
       "nombre": "Pulsera 07",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera07.webp",
+      "imagenes": [
+        "assets/productos/pulsera07.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera08",
       "nombre": "Pulsera 08",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera08.webp",
+      "imagenes": [
+        "assets/productos/pulsera08.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera09",
       "nombre": "Pulsera 09",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera09.webp",
+      "imagenes": [
+        "assets/productos/pulsera09.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "pulsera10",
       "nombre": "Pulsera 10",
       "categoria": "pulseras",
       "precio": 1,
-      "imagen": "assets/productos/pulsera10.webp",
+      "imagenes": [
+        "assets/productos/pulsera10.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "amuleto01",
       "nombre": "Amuleto 01",
       "categoria": "amuletos",
       "precio": 1,
-      "imagen": "assets/productos/amuleto01.webp",
+      "imagenes": [
+        "assets/productos/amuleto01.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "amuleto02",
-      "nombre": "Amuleto02",
+      "nombre": "Amuleto 02",
       "categoria": "amuletos",
       "precio": 1,
-      "imagen": "assets/productos/amuleto02.webp",
+      "imagenes": [
+        "assets/productos/amuleto02.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "cristal00",
       "nombre": "Cristal 00",
       "categoria": "cristales",
       "precio": 1,
-      "imagen": "assets/productos/cristal00.webp",
+      "imagenes": [
+        "assets/productos/cristal00.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "cristal01",
       "nombre": "Cristal 01",
       "categoria": "cristales",
       "precio": 1,
-      "imagen": "assets/productos/cristal01.webp",
+      "imagenes": [
+        "assets/productos/cristal01.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
-    },{
+    },
+    {
       "id": "cristal02",
-      "nombre": "Cristal02",
+      "nombre": "Cristal 02",
       "categoria": "cristales",
       "precio": 1,
-      "imagen": "assets/productos/cristal02.webp",
+      "imagenes": [
+        "assets/productos/cristal02.webp"
+      ],
       "descripcion": "Abre el canal espiritual y aquieta la mente.",
       "disponible": true
     },
@@ -143,68 +186,43 @@
       "nombre": "Kit Alegría y Energía",
       "categoria": "kits",
       "precio": 1,
-      "imagen": "assets/productos/kit_alegria_energia.webp",
+      "imagenes": [
+        "assets/productos/kit_alegria_energia.webp"
+      ],
       "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
       "disponible": true
-    },{
+    },
+    {
       "id": "kit_claridad_intuicion",
       "nombre": "Kit Claridad e Intuición",
       "categoria": "kits",
       "precio": 1,
-      "imagen": "assets/productos/kit_claridad_intuicion.webp",
+      "imagenes": [
+        "assets/productos/kit_claridad_intuicion.webp"
+      ],
       "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
       "disponible": true
-    },{
+    },
+    {
       "id": "kit_proteccion_energetica",
       "nombre": "Kit Protección Energética",
       "categoria": "kits",
       "precio": 1,
-      "imagen": "assets/productos/kit_proteccion_energetica.webp",
+      "imagenes": [
+        "assets/productos/kit_proteccion_energetica.webp"
+      ],
       "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
       "disponible": true
-    },{
+    },
+    {
       "id": "kit_sanacion_emocional",
       "nombre": "Kit Sanación Emocional",
       "categoria": "kits",
       "precio": 1,
-      "imagen": "assets/productos/kit_sanacion_emocional.webp",
+      "imagenes": [
+        "assets/productos/kit_sanacion_emocional.webp"
+      ],
       "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
-      "disponible": true
-    },
-    {
-      "id": "cuarzo-rosa",
-      "nombre": "Cuarzo Rosa",
-      "categoria": "pulseras",
-      "precio": 13000,
-      "imagen": "assets/foto3.webp",
-      "descripcion": "Enseña a amarse sin exigencias. Amor propio y ternura.",
-      "disponible": true
-    },
-    {
-      "id": "ojo-de-tigre",
-      "nombre": "Ojo de Tigre",
-      "categoria": "pulseras",
-      "precio": 14500,
-      "imagen": "assets/foto4.webp",
-      "descripcion": "Recuerda quién sos. Protección y enraizamiento.",
-      "disponible": true
-    },
-    {
-      "id": "kit-calma-mental",
-      "nombre": "Kit Calma Mental",
-      "categoria": "kits",
-      "precio": 22000,
-      "imagen": "assets/foto5.webp",
-      "descripcion": "Howlite, cuarzo azul, amazonita y amatista. Baja el ruido interno y vuelve a tu centro.",
-      "disponible": true
-    },
-    {
-      "id": "kit-accion-confianza",
-      "nombre": "Kit Acción y Confianza",
-      "categoria": "kits",
-      "precio": 22000,
-      "imagen": "assets/foto6.webp",
-      "descripcion": "Ojo de halcón, jaspe sanguíneo, jade limón y cuarzo cristal. Para dejar de dudar y empezar a hacer.",
       "disponible": true
     }
   ]

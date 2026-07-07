@@ -4,6 +4,7 @@
 // ============================================================
 
 import { formatearPrecio } from "./whatsapp.js";
+import { imagenesDe } from "./producto.js";
 
 // Placeholder gris para cuando falta una foto (no rompe el diseño)
 const IMG_FALLBACK =
@@ -17,12 +18,27 @@ export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
   let categoriaActiva = "todos";
 
   function tarjeta(p) {
+    const imgs = imagenesDe(p);
+    const fuentes = imgs.length ? imgs : [""];   // al menos una (muestra placeholder)
+
+    // Una <img> por foto, dentro de una pista deslizable
+    const slides = fuentes.map((src) =>
+      `<img src="${src}" alt="${p.nombre}" loading="lazy"
+            onerror="this.onerror=null;this.src='${IMG_FALLBACK}'">`).join("");
+
+    // Puntitos: solo si hay más de una foto
+    const dots = imgs.length > 1
+      ? `<div class="product__dots">${imgs.map((_, i) =>
+          `<button class="product__dot${i ? "" : " is-active"}" aria-label="Foto ${i + 1}"></button>`
+        ).join("")}</div>`
+      : "";
+
     const el = document.createElement("article");
     el.className = "panel product";
     el.innerHTML = `
       <div class="product__media">
-        <img src="${p.imagen || ""}" alt="${p.nombre}" loading="lazy"
-             onerror="this.onerror=null;this.src='${IMG_FALLBACK}'">
+        <div class="product__track">${slides}</div>
+        ${dots}
       </div>
       <div class="product__body">
         <h3 class="product__name">${p.nombre}</h3>
@@ -32,7 +48,20 @@ export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
           <button class="btn btn--primary btn--sm">Agregar</button>
         </div>
       </div>`;
-    el.querySelector("button").addEventListener("click", () => onAgregar(p.id));
+
+    // Galería: sincroniza puntitos <-> deslizado (swipe nativo del navegador)
+    if (imgs.length > 1) {
+      const track = el.querySelector(".product__track");
+      const puntos = [...el.querySelectorAll(".product__dot")];
+      puntos.forEach((d, i) => d.addEventListener("click", () =>
+        track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" })));
+      track.addEventListener("scroll", () => {
+        const i = Math.round(track.scrollLeft / track.clientWidth);
+        puntos.forEach((d, k) => d.classList.toggle("is-active", k === i));
+      }, { passive: true });
+    }
+
+    el.querySelector(".product__foot button").addEventListener("click", () => onAgregar(p.id));
     return el;
   }
 
