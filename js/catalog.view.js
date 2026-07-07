@@ -1,10 +1,13 @@
 // ============================================================
 // catalog.view.js — Vista del catálogo.
-// Único responsable: dibujar productos y filtros en pantalla.
+// Único responsable: dibujar productos, filtros y buscadores.
+// La DECISIÓN de qué producto pasa el filtro vive en
+// catalog.filters.js (SRP): esta vista solo delega y dibuja.
 // ============================================================
 
 import { formatearPrecio } from "./whatsapp.js";
 import { imagenesDe } from "./producto.js";
+import { crearFiltrosCatalogo } from "./catalog.filters.js";
 
 // Placeholder gris para cuando falta una foto (no rompe el diseño)
 const IMG_FALLBACK =
@@ -14,17 +17,24 @@ const IMG_FALLBACK =
     '<text x="50%" y="50%" font-family="serif" font-size="16" fill="#b6a079" ' +
     'text-anchor="middle" dominant-baseline="middle">Runarka</text></svg>');
 
-export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
+export function crearCatalogo({ grid, filtros, buscadores, tienda, opciones = {}, productos, onAgregar }) {
   let categoriaActiva = "todos";
+  const estado = crearFiltrosCatalogo();      // categoría + emoción + piedra
 
   function tarjeta(p) {
     const imgs = imagenesDe(p);
     const fuentes = imgs.length ? imgs : [""];   // al menos una (muestra placeholder)
 
-    // Una <img> por foto, dentro de una pista deslizable
+    // Cada foto es un "slide" con DOS imágenes de la misma URL:
+    // atrás una en 'cover' + blur (rellena márgenes), adelante la
+    // nítida en 'contain'. Misma URL => se descarga una sola vez.
     const slides = fuentes.map((src) =>
-      `<img src="${src}" alt="${p.nombre}" loading="lazy"
-            onerror="this.onerror=null;this.src='${IMG_FALLBACK}'">`).join("");
+      `<div class="product__slide">
+         <img class="product__blur" src="${src}" alt="" aria-hidden="true"
+              loading="lazy" onerror="this.remove()">
+         <img class="product__photo" src="${src}" alt="${p.nombre}"
+              loading="lazy" onerror="this.onerror=null;this.src='${IMG_FALLBACK}'">
+       </div>`).join("");
 
     // Puntitos: solo si hay más de una foto
     const dots = imgs.length > 1
@@ -66,15 +76,13 @@ export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
   }
 
   function render() {
-    const lista = productos.filter((p) =>
-      p.disponible !== false &&
-      (categoriaActiva === "todos" || p.categoria === categoriaActiva));
+    const lista = estado.aplicar(productos);
 
     grid.replaceChildren(
       ...(lista.length
         ? lista.map(tarjeta)
         : [Object.assign(document.createElement("p"),
-            { className: "muted center", textContent: "No hay productos en esta categoría." })])
+            { className: "muted center", textContent: "No encontramos piezas con esos filtros." })])
     );
   }
 
@@ -86,6 +94,7 @@ export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
       b.textContent = c.nombre;
       b.addEventListener("click", () => {
         categoriaActiva = c.id;
+        estado.setCategoria(c.id);
         [...filtros.children].forEach((x) => x.classList.toggle("is-active", x === b));
         render();
       });
@@ -93,5 +102,79 @@ export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
     }));
   }
 
-  return { render, renderFiltros };
+  // Desplegable propio (no nativo) para poder estilarlo por completo.
+  // Reutilizable: emoción o piedra. Misma API: onChange(valor).
+  function crearSelect({ etiqueta, placeholder, valores, onChange }) {
+    const opciones = [{ value: "", label: placeholder }, ...valores.map((v) => ({ value: v, label: v }))];
+
+    const root = document.createElement("div");
+    root.className = "dropdown";
+    root.innerHTML = `
+      <button type="button" class="dropdown__trigger" aria-haspopup="listbox" aria-expanded="false">
+        <span class="dropdown__label">${etiqueta}</span>
+        <span class="dropdown__value">${placeholder}</span>
+        <svg class="dropdown__caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5"/></svg>
+      </button>
+      <ul class="dropdown__menu" role="listbox" hidden>
+        ${opciones.map((o) =>
+          `<li class="dropdown__option" role="option" data-value="${o.value}"
+               aria-selected="${o.value === "" ? "true" : "false"}">${o.label}</li>`
+        ).join("")}
+      </ul>`;
+
+    const trigger = root.querySelector(".dropdown__trigger");
+    const valueEl = root.querySelector(".dropdown__value");
+    const menu = root.querySelector(".dropdown__menu");
+    const items = [...root.querySelectorAll(".dropdown__option")];
+
+    const abrir  = () => { menu.hidden = false; root.classList.add("is-open"); trigger.setAttribute("aria-expanded", "true"); };
+    const cerrar = () => { menu.hidden = true;  root.classList.remove("is-open"); trigger.setAttribute("aria-expanded", "false"); };
+
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      root.classList.contains("is-open") ? cerrar() : abrir();
+    });
+
+    items.forEach((li) => {
+      li.addEventListener("click", () => {
+        const valor = li.dataset.value;
+        valueEl.textContent = li.textContent;
+        items.forEach((x) => x.setAttribute("aria-selected", String(x === li)));
+        root.classList.toggle("has-value", valor !== "");   // resalta si el filtro está activo
+        cerrar();
+        onChange(valor);
+        render();
+      });
+    });
+
+    // Cerrar al clickear afuera o con Escape
+    document.addEventListener("click", (e) => { if (!root.contains(e.target)) cerrar(); });
+    root.addEventListener("keydown", (e) => { if (e.key === "Escape") { cerrar(); trigger.focus(); } });
+
+    return root;
+  }
+
+  function renderBuscadores() {
+    if (!buscadores) return;                    // sin contenedor = feature desactivada
+    const nodos = [];
+
+    if (opciones.emociones?.length) {
+      nodos.push(crearSelect({
+        etiqueta: "Emoción", placeholder: "Todas",
+        valores: opciones.emociones,
+        onChange: (v) => estado.setEmocion(v),
+      }));
+    }
+    if (opciones.piedras?.length) {
+      nodos.push(crearSelect({
+        etiqueta: "Piedra", placeholder: "Todas",
+        valores: opciones.piedras,
+        onChange: (v) => estado.setPiedra(v),
+      }));
+    }
+    buscadores.replaceChildren(...nodos);
+    buscadores.hidden = nodos.length === 0;     // no deja un hueco vacío
+  }
+
+  return { render, renderFiltros, renderBuscadores };
 }

@@ -15,6 +15,12 @@
     { "id": "cristales", "nombre": "Cristales" }
   ],
 
+  "_ayuda_filtros": "Opciones de los buscadores por emoción y por piedra. El match es por texto: se busca la palabra elegida dentro del NOMBRE y la DESCRIPCIÓN del producto. Para que una emoción/piedra encuentre un producto, esa palabra tiene que aparecer en su descripción (o nombre). Podés agregar o sacar opciones de estas listas libremente.",
+  "filtros": {
+    "emociones": ["Alegría", "Energía", "Claridad", "Intuición", "Protección", "Sanación", "Calma"],
+    "piedras": ["Amatista", "Cuarzo rosa", "Cuarzo cristal", "Ojo de tigre", "Fluorita", "Amazonita", "Turmalina", "Jaspe", "Ágata"]
+  },
+
   "productos": [
     {
       "id": "pulsera01",

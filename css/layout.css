@@ -150,12 +150,30 @@
 .product__track::-webkit-scrollbar {
   display: none; /* WebKit: sin barra */
 }
-.product__track img {
+/* Cada foto es un "slide" que ocupa todo el visor */
+.product__slide {
+  position: relative;
   min-width: 100%;
+  height: 100%;
   scroll-snap-align: center;
+  overflow: hidden;
+}
+/* Fondo: la MISMA foto (segunda <img>) en 'cover' y desenfocada,
+   rellena los márgenes que deja 'contain' cuando no es cuadrada.
+   El navegador la descarga una sola vez (misma URL). */
+.product__blur {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(18px) saturate(1.1);
+  transform: scale(1.15); /* tapa el halo transparente del blur */
 }
 .product__dots {
   position: absolute;
+  z-index: 2; /* por encima de la foto (z-index:1), si no no se pueden tocar */
   left: 0;
   right: 0;
   bottom: 0.6rem;
@@ -180,13 +198,15 @@
   background: var(--accent);
   transform: scale(1.3);
 }
-.product__media img {
+.product__photo {
+  position: relative; /* la foto nítida va sobre el blur */
+  z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* ya no recorta: se ve completa */
   transition: transform 0.4s ease;
 }
-.product:hover .product__media img {
+.product:hover .product__photo {
   transform: scale(1.05);
 }
 .product__body {

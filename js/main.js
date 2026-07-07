@@ -23,7 +23,7 @@ async function iniciar() {
     return;
   }
 
-  const { tienda = {}, categorias = [], productos = [] } = data;
+  const { tienda = {}, categorias = [], productos = [], filtros = {} } = data;
   const productosPorId = Object.fromEntries(productos.map((p) => [p.id, p]));
 
   // 2) Carrito (modelo)
@@ -42,11 +42,15 @@ async function iniciar() {
 
   // 4) Catálogo
   const catalogo = crearCatalogo({
-    grid: $("#catalogo-grid"), filtros: $("#catalogo-filtros"),
+    grid: $("#catalogo-grid"),
+    filtros: $("#catalogo-filtros"),
+    buscadores: $("#catalogo-buscadores"),
     tienda, productos,
+    opciones: filtros,                       // { emociones: [...], piedras: [...] }
     onAgregar: (id) => carrito.agregar(id),
   });
   catalogo.renderFiltros(categorias);
+  catalogo.renderBuscadores();
   catalogo.render();
   vistaCarrito.render();
 
