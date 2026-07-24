@@ -7,6 +7,10 @@
 // components.css y layout.css sigue aplicando igual que antes.
 // ============================================================
 
+// --- Rutas de los logos (están en assets/logos/, no en assets/) ---
+export const LOGO_HEADER = "assets/logos/logo2.png";
+export const LOGO_HERO = "assets/logos/logo3.png";
+
 // --- El menú del sitio. Cambiar acá cambia las 7 páginas. ---
 export const PAGINAS = [
   { href: "filosofia.html",   menu: "Filosofía",   titulo: "Nuestra Filosofía" },
@@ -52,7 +56,7 @@ class SiteHeader extends HTMLElement {
       <header class="site-header">
         <div class="container site-header__inner">
           <a class="brand" href="index.html" aria-label="Runarka · Inicio">
-            <img src="assets/logos/logo2.png" alt="" onerror="this.style.display='none'">
+            <img src="${LOGO_HEADER}" alt="" onerror="this.style.display='none'">
           </a>
 
           <nav class="nav" id="nav" aria-label="Principal">${enlaces}</nav>

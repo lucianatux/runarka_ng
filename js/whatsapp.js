@@ -10,6 +10,16 @@ export function formatearPrecio(n, moneda = "$") {
   return moneda + Math.round(Number(n) || 0).toLocaleString("es-AR");
 }
 
+// Precio de una línea. Con más de una unidad muestra el unitario,
+// así se entiende de dónde sale el subtotal.
+//   1 unidad  →  $25.000
+//   2 o más   →  $15.000 c/u = $30.000
+export function detallePrecio(linea, moneda = "$") {
+  const subtotal = formatearPrecio(linea.precio * linea.cant, moneda);
+  if (linea.cant <= 1) return subtotal;
+  return `${formatearPrecio(linea.precio, moneda)} c/u = ${subtotal}`;
+}
+
 export function calcularTotal(carrito) {
   return carrito.lineas.reduce((acc, l) => acc + l.precio * l.cant, 0);
 }
@@ -29,7 +39,7 @@ export function armarMensaje(carrito, tienda = {}) {
 
   carrito.lineas.forEach((l) => {
     partes.push(
-      `• ${l.cant}x ${l.nombre} — ${formatearPrecio(l.precio * l.cant, tienda.moneda)}`,
+      `• ${l.cant}x ${l.nombre} — ${detallePrecio(l, tienda.moneda)}`,
       ...detalleOpciones(l)
     );
   });
