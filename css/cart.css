@@ -44,3 +44,17 @@
 .cart__foot { border-top: 1px solid var(--border); display: grid; gap: var(--sp-3); }
 .cart__total { display: flex; align-items: baseline; justify-content: space-between; font-weight: 700; font-size: var(--fs-500); }
 .cart__note  { font-size: var(--fs-300); color: var(--text-muted); text-align: center; }
+
+/* --- Datos del cliente (nombre y comentarios) --- */
+.cart__campos { display: grid; gap: var(--sp-2); }
+
+/* --- Opciones elegidas de cada línea --- */
+.cart-item__opciones {
+  list-style: none;
+  padding: 0;
+  margin-bottom: .4rem;
+  display: grid; gap: .1rem;
+  font-size: var(--fs-300);
+  color: var(--text-muted);
+}
+.cart-item__opciones span { font-weight: 600; }
