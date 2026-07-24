@@ -1,84 +1,26 @@
 // ============================================================
-// main.js — Punto de entrada. Conecta todos los módulos.
-// Si querés agregar/quitar una "feature", se nota acá.
+// main.js — Punto de entrada. Lo cargan las 7 páginas.
+//
+// Cada página inicializa SOLO lo que le corresponde: si no hay
+// catálogo en el HTML, el catálogo no se arma. Así una misma
+// entrada sirve para todo el sitio sin romperse.
 // ============================================================
 
-import { cargarTienda } from "./data.js";
-import { crearCarrito } from "./cart.js";
-import { crearCatalogo } from "./catalog.view.js";
-import { crearVistaCarrito } from "./cart.view.js";
+import "./layout/site-header.js";
+import "./layout/site-footer.js";
+import { initTema } from "./theme.js";
 
 const $ = (sel) => document.querySelector(sel);
 
-async function iniciar() {
-  // 1) Datos
-  let data;
-  try {
-    data = await cargarTienda("productos.json");
-  } catch (e) {
-    console.error(e);
-    $("#catalogo-grid").innerHTML =
-      `<p class="cart__empty">No pudimos cargar los productos.<br>
-       Revisá que <b>productos.json</b> exista y no tenga errores de formato.</p>`;
-    return;
-  }
+function iniciar() {
+  initTema();
 
-  const { tienda = {}, categorias = [], productos = [], filtros = {} } = data;
-  const productosPorId = Object.fromEntries(productos.map((p) => [p.id, p]));
+  // --- Carrito (paso 3) ---
+  // El drawer y el modal de opciones se enganchan acá.
 
-  // 2) Carrito (modelo)
-  const carrito = crearCarrito();
-
-  // 3) Vista del carrito
-  const vistaCarrito = crearVistaCarrito({
-    refs: {
-      drawer: $("#cart"), overlay: $("#overlay"), lista: $("#cart-items"),
-      totalEl: $("#cart-total"), contador: $("#cart-count"),
-      btnCheckout: $("#cart-checkout"), btnVaciar: $("#cart-clear"),
-    },
-    tienda, productosPorId, carrito,
-  });
-  carrito.suscribir(() => vistaCarrito.render());
-
-  // 4) Catálogo
-  const catalogo = crearCatalogo({
-    grid: $("#catalogo-grid"),
-    filtros: $("#catalogo-filtros"),
-    buscadores: $("#catalogo-buscadores"),
-    tienda, productos,
-    opciones: filtros,                       // { emociones: [...], piedras: [...] }
-    onAgregar: (id) => carrito.agregar(id),
-  });
-  catalogo.renderFiltros(categorias);
-  catalogo.renderBuscadores();
-  catalogo.render();
-  vistaCarrito.render();
-
-  // 5) Eventos de la UI
-  $("#cart-open").addEventListener("click", vistaCarrito.abrir);
-  $("#cart-close").addEventListener("click", vistaCarrito.cerrar);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") vistaCarrito.cerrar(); });
-
-  // Menú móvil
-  const nav = $("#nav");
-  $("#nav-toggle").addEventListener("click", () => nav.classList.toggle("is-open"));
-  nav.addEventListener("click", (e) => { if (e.target.tagName === "A") nav.classList.remove("is-open"); });
-
-  // Link de WhatsApp en la sección Contacto (usa el número del JSON)
-  const contactoWa = $("#contacto-wa");
-  if (contactoWa && tienda.whatsapp) contactoWa.href = `https://wa.me/${tienda.whatsapp}`;
-
-  // 6) Modo oscuro (opcional — se puede quitar sin afectar nada)
-  const btnTema = $("#theme-toggle");
-  if (btnTema) {
-    const guardado = (() => { try { return localStorage.getItem("runarka_theme"); } catch { return null; } })();
-    if (guardado) document.documentElement.dataset.theme = guardado;
-    btnTema.addEventListener("click", () => {
-      const html = document.documentElement;
-      const nuevo = html.dataset.theme === "dark" ? "" : "dark";
-      html.dataset.theme = nuevo;
-      try { localStorage.setItem("runarka_theme", nuevo); } catch {}
-    });
+  // --- Catálogo: solo en colecciones.html (paso 3) ---
+  if ($("#catalogo-grid")) {
+    // cargar productos.json, armar la grilla y los filtros
   }
 }
 

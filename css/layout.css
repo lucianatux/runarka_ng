@@ -50,6 +50,11 @@
 .nav a:hover {
   color: var(--text);
 }
+/* Página actual: la marca <site-header> con aria-current="page" */
+.nav a[aria-current="page"] {
+  color: var(--accent-2);
+  font-weight: 600;
+}
 
 .header-actions {
   display: flex;
@@ -102,6 +107,10 @@
   text-align: center;
   margin-bottom: var(--sp-5);
 }
+/* Cada página interna abre con un h1; le damos el peso de un h2 */
+.section__head h1 {
+  font-size: var(--fs-700);
+}
 .section__head p {
   color: var(--text-muted);
   max-width: 52ch;
@@ -150,30 +159,12 @@
 .product__track::-webkit-scrollbar {
   display: none; /* WebKit: sin barra */
 }
-/* Cada foto es un "slide" que ocupa todo el visor */
-.product__slide {
-  position: relative;
+.product__track img {
   min-width: 100%;
-  height: 100%;
   scroll-snap-align: center;
-  overflow: hidden;
-}
-/* Fondo: la MISMA foto (segunda <img>) en 'cover' y desenfocada,
-   rellena los márgenes que deja 'contain' cuando no es cuadrada.
-   El navegador la descarga una sola vez (misma URL). */
-.product__blur {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(18px) saturate(1.1);
-  transform: scale(1.15); /* tapa el halo transparente del blur */
 }
 .product__dots {
   position: absolute;
-  z-index: 2; /* por encima de la foto (z-index:1), si no no se pueden tocar */
   left: 0;
   right: 0;
   bottom: 0.6rem;
@@ -198,15 +189,13 @@
   background: var(--accent);
   transform: scale(1.3);
 }
-.product__photo {
-  position: relative; /* la foto nítida va sobre el blur */
-  z-index: 1;
+.product__media img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* ya no recorta: se ve completa */
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
-.product:hover .product__photo {
+.product:hover .product__media img {
   transform: scale(1.05);
 }
 .product__body {
@@ -270,9 +259,20 @@
   color: var(--text-muted);
   font-size: var(--fs-300);
 }
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: center;
+}
+.site-footer__nav a:hover {
+  color: var(--text);
+}
 
-/* ---------- Responsive: menú móvil ---------- */
-@media (max-width: 760px) {
+/* ---------- Responsive: menú móvil ----------
+   Antes era 760px con 3 ítems. Con 6 el menú ya no entra
+   junto al logo y los botones, así que colapsa antes. */
+@media (max-width: 1000px) {
   .nav-toggle {
     display: inline-flex;
   }

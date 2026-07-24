@@ -1,30 +1,48 @@
 // ============================================================
 // whatsapp.js — Formato de precios y armado del pedido.
 // Único responsable: convertir el carrito en un link de WhatsApp.
+//
+// Ya no necesita el catálogo: cada línea del carrito trae su
+// nombre y su precio adentro.
 // ============================================================
 
 export function formatearPrecio(n, moneda = "$") {
-  return moneda + Number(n).toLocaleString("es-AR");
+  return moneda + Math.round(Number(n) || 0).toLocaleString("es-AR");
 }
 
-export function calcularTotal(carrito, productosPorId) {
-  return carrito.lineas.reduce(
-    (acc, { id, cant }) => acc + (productosPorId[id]?.precio || 0) * cant, 0);
+export function calcularTotal(carrito) {
+  return carrito.lineas.reduce((acc, l) => acc + l.precio * l.cant, 0);
 }
 
-export function armarLinkWhatsApp(carrito, productosPorId, tienda) {
-  const lineas = carrito.lineas.map(({ id, cant }) => {
-    const p = productosPorId[id];
-    return `• ${cant}x ${p.nombre} — ${formatearPrecio(p.precio * cant, tienda.moneda)}`;
+// Las opciones elegidas, una por renglón, indentadas bajo el producto.
+function detalleOpciones(linea) {
+  return Object.entries(linea.opciones || {})
+    .filter(([, valor]) => valor !== "" && valor != null)
+    .map(([etiqueta, valor]) => `   ↳ ${etiqueta}: ${valor}`);
+}
+
+export function armarMensaje(carrito, tienda = {}) {
+  const partes = [tienda.mensajeIntro || "¡Hola! Quiero hacer este pedido:", ""];
+
+  const nombre = (carrito.nombre || "").trim();
+  if (nombre) partes.push(`Soy ${nombre}.`, "");
+
+  carrito.lineas.forEach((l) => {
+    partes.push(
+      `• ${l.cant}x ${l.nombre} — ${formatearPrecio(l.precio * l.cant, tienda.moneda)}`,
+      ...detalleOpciones(l)
+    );
   });
 
-  const texto = [
-    tienda.mensajeIntro || "¡Hola! Quiero hacer este pedido:",
-    "",
-    ...lineas,
-    "",
-    `Total: ${formatearPrecio(calcularTotal(carrito, productosPorId), tienda.moneda)}`,
-  ].join("\n");
+  partes.push("", `Total: ${formatearPrecio(calcularTotal(carrito), tienda.moneda)}`);
 
-  return `https://wa.me/${tienda.whatsapp}?text=${encodeURIComponent(texto)}`;
+  const comentarios = (carrito.comentarios || "").trim();
+  if (comentarios) partes.push("", `Comentarios: ${comentarios}`);
+
+  return partes.join("\n");
+}
+
+export function armarLinkWhatsApp(carrito, tienda = {}) {
+  const texto = encodeURIComponent(armarMensaje(carrito, tienda));
+  return `https://wa.me/${tienda.whatsapp}?text=${texto}`;
 }
