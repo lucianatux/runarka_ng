@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Editá SOLO los textos entre comillas y los precios (números, sin puntos ni signos). 'imagenes' es una LISTA: la primera foto es la portada; para sumar más, agregalas separadas por coma dentro de los corchetes. No borres las comas ni las llaves. Cada producto necesita un 'id' único.",
+  "_ayuda": "Editá SOLO los textos entre comillas y los precios (números, sin puntos ni signos). 'imagenes' es una LISTA: la primera foto es la portada; para sumar más, agregalas separadas por coma dentro de los corchetes. No borres las comas ni las llaves. Cada producto necesita un 'id' único. Las descripciones incluyen palabras clave (Calma, Protección, Abundancia, Claridad, Amor propio, y nombres de piedras) que hacen funcionar los filtros: si cambiás una descripción, mantené esas palabras para que el producto siga apareciendo en su filtro.",
 
   "tienda": {
     "nombre": "Runarka",
@@ -31,7 +31,7 @@
         "assets/productos/pulsera02.webp",
         "assets/productos/pulsera03.webp"
       ],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Amatista para la Calma: aquieta la mente y ordena el descanso al final del día.",
       "disponible": true
     },
     {
@@ -40,7 +40,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera02.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Cuarzo rosa que abre el Amor propio y suaviza el diálogo con una misma.",
       "disponible": true
     },
     {
@@ -49,7 +49,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera03.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Ojo de tigre para la Protección: sostiene el ánimo y devuelve firmeza en días difíciles.",
       "disponible": true
     },
     {
@@ -58,7 +58,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera04.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Lapislázuli que trae Claridad mental y ayuda a poner en palabras lo que sentís.",
       "disponible": true
     },
     {
@@ -67,7 +67,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera05.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Ojo de tigre asociado a la Abundancia: acompaña proyectos nuevos con foco y coraje.",
       "disponible": true
     },
     {
@@ -76,7 +76,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera06.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Amatista y Cuarzo rosa: Calma para la mente y ternura para el corazón, en una sola pieza.",
       "disponible": true
     },
     {
@@ -85,7 +85,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera07.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Cuarzo rosa pensada para el Amor propio: un recordatorio suave de tratarte con cuidado.",
       "disponible": true
     },
     {
@@ -94,7 +94,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera08.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Lapislázuli para la Claridad: despeja la cabeza cuando hay que tomar una decisión.",
       "disponible": true
     },
     {
@@ -103,7 +103,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera09.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Ojo de tigre de Protección diaria: un escudo discreto para llevar a todas partes.",
       "disponible": true
     },
     {
@@ -112,7 +112,7 @@
       "categoria": "pulseras",
       "precio": 1,
       "imagenes": ["assets/productos/pulsera10.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Amatista para momentos de Calma: respirá hondo y volvé a tu centro.",
       "disponible": true
     },
     {
@@ -121,7 +121,7 @@
       "categoria": "amuletos",
       "precio": 1,
       "imagenes": ["assets/productos/amuleto01.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Amuleto de Protección con Ojo de tigre: guarda tu energía y marca un límite claro.",
       "disponible": true
     },
     {
@@ -130,7 +130,7 @@
       "categoria": "amuletos",
       "precio": 1,
       "imagenes": ["assets/productos/amuleto02.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Amuleto de Abundancia con Lapislázuli: atrae oportunidades con la mente despejada.",
       "disponible": true
     },
     {
@@ -139,7 +139,7 @@
       "categoria": "cristales",
       "precio": 1,
       "imagenes": ["assets/productos/cristal00.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Punta de Amatista para el hogar: irradia Calma y limpia el ambiente del cuarto.",
       "disponible": true
     },
     {
@@ -148,7 +148,7 @@
       "categoria": "cristales",
       "precio": 1,
       "imagenes": ["assets/productos/cristal01.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Cuarzo rosa en bruto para el Amor propio: ideal en la mesa de luz o el escritorio.",
       "disponible": true
     },
     {
@@ -157,7 +157,7 @@
       "categoria": "cristales",
       "precio": 1,
       "imagenes": ["assets/productos/cristal02.webp"],
-      "descripcion": "Abre el canal espiritual y aquieta la mente.",
+      "descripcion": "Lapislázuli para la Claridad: acompaña la lectura, el estudio y la escritura.",
       "disponible": true
     },
     {
@@ -166,7 +166,7 @@
       "categoria": "kits",
       "precio": 1,
       "imagenes": ["assets/productos/kit_alegria_energia.webp"],
-      "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
+      "descripcion": "Kit de Abundancia con Ojo de tigre y Cuarzo rosa: enciende el ánimo y renueva las ganas.",
       "disponible": true
     },
     {
@@ -175,7 +175,7 @@
       "categoria": "kits",
       "precio": 1,
       "imagenes": ["assets/productos/kit_claridad_intuicion.webp"],
-      "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
+      "descripcion": "Kit de Claridad con Lapislázuli y Amatista: ordena las ideas y afina la intuición.",
       "disponible": true
     },
     {
@@ -184,7 +184,7 @@
       "categoria": "kits",
       "precio": 1,
       "imagenes": ["assets/productos/kit_proteccion_energetica.webp"],
-      "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
+      "descripcion": "Kit de Protección con Ojo de tigre: limpia el aura y frena las energías negativas.",
       "disponible": true
     },
     {
@@ -193,7 +193,7 @@
       "categoria": "kits",
       "precio": 1,
       "imagenes": ["assets/productos/kit_sanacion_emocional.webp"],
-      "descripcion": "Limpia el aura, expulsa energías negativas y reorganiza cuerpo, mente y espíritu.",
+      "descripcion": "Kit de Amor propio con Cuarzo rosa y Amatista: acompaña procesos y trae Calma al corazón.",
       "disponible": true
     }
   ]
