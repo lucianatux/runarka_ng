@@ -16,7 +16,7 @@ export function initTema() {
 
   boton.addEventListener("click", () => {
     const html = document.documentElement;
-    const nuevo = html.dataset.theme === "dark" ? "" : "dark";
+    const nuevo = html.dataset.theme === "dark" ? "light" : "dark";
     html.dataset.theme = nuevo;
     try { localStorage.setItem(STORAGE_KEY, nuevo); } catch { /* sin persistencia */ }
   });

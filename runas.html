@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Runas y Símbolos · Runarka</title>
-    <meta name="description" content="El significado de las runas y cómo acompañan a cada pieza de Runarka." />
+    <meta
+      name="description"
+      content="El significado de las runas y cómo acompañan a cada pieza de Runarka."
+    />
 
     <!-- Tema ANTES de pintar: sin esto se ve un flash blanco en cada
          navegación cuando la persona eligió modo oscuro. -->
     <script>
       try {
-        document.documentElement.dataset.theme =
-          localStorage.getItem("runarka_theme") || "dark";
+        var t = localStorage.getItem("runarka_theme") || "dark";
+        document.documentElement.dataset.theme = t === "dark" ? "dark" : "";
       } catch (e) {}
     </script>
 

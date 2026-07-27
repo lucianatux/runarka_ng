@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Colecciones Runarka</title>
-    <meta name="description" content="Pulseras, amuletos, cristales y kits de piedras naturales. Armá tu pedido y lo cerramos por WhatsApp." />
+    <meta
+      name="description"
+      content="Pulseras, amuletos, cristales y kits de piedras naturales. Armá tu pedido y lo cerramos por WhatsApp."
+    />
 
     <!-- Tema ANTES de pintar: sin esto se ve un flash blanco en cada
          navegación cuando la persona eligió modo oscuro. -->
     <script>
       try {
-        document.documentElement.dataset.theme =
-          localStorage.getItem("runarka_theme") || "dark";
+        var t = localStorage.getItem("runarka_theme") || "dark";
+        document.documentElement.dataset.theme = t === "dark" ? "dark" : "";
       } catch (e) {}
     </script>
 
@@ -41,7 +44,8 @@
             <div class="rune-divider">ᚱ</div>
             <h1>Colecciones Runarka</h1>
             <p>
-              Elegí tus piezas y armá el pedido. Lo terminamos juntas por WhatsApp.
+              Elegí tus piezas y armá el pedido. Lo terminamos juntas por
+              WhatsApp.
             </p>
           </div>
 

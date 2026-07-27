@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Nuestra Filosofía · Runarka</title>
-    <meta name="description" content="Astrología evolutiva, runas y piedras naturales para acompañar procesos reales de transformación." />
+    <meta
+      name="description"
+      content="Astrología evolutiva, runas y piedras naturales para acompañar procesos reales de transformación."
+    />
 
     <!-- Tema ANTES de pintar: sin esto se ve un flash blanco en cada
          navegación cuando la persona eligió modo oscuro. -->
     <script>
       try {
-        document.documentElement.dataset.theme =
-          localStorage.getItem("runarka_theme") || "dark";
+        var t = localStorage.getItem("runarka_theme") || "dark";
+        document.documentElement.dataset.theme = t === "dark" ? "dark" : "";
       } catch (e) {}
     </script>
 

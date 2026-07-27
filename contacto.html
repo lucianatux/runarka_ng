@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contacto · Runarka</title>
-    <meta name="description" content="Escribinos y coordinamos tu pedido. Pago en efectivo o transferencia." />
+    <meta
+      name="description"
+      content="Escribinos y coordinamos tu pedido. Pago en efectivo o transferencia."
+    />
 
     <!-- Tema ANTES de pintar: sin esto se ve un flash blanco en cada
          navegación cuando la persona eligió modo oscuro. -->
     <script>
       try {
-        document.documentElement.dataset.theme =
-          localStorage.getItem("runarka_theme") || "dark";
+        var t = localStorage.getItem("runarka_theme") || "dark";
+        document.documentElement.dataset.theme = t === "dark" ? "dark" : "";
       } catch (e) {}
     </script>
 
@@ -40,16 +43,28 @@
             <div class="rune-divider">ᚱ</div>
             <h1>Contacto</h1>
             <p class="muted">
-              Escribinos y coordinamos tu pedido. Pago en efectivo o transferencia.
+              Escribinos y coordinamos tu pedido. Pago en efectivo o
+              transferencia.
             </p>
           </div>
 
           <div class="contact">
             <div class="contact__links">
-              <a class="btn btn--primary" id="contacto-wa" href="#"
-                 target="_blank" rel="noopener">Escribir por WhatsApp</a>
-              <a class="btn btn--ghost" href="https://www.instagram.com/runarka_ng/"
-                 target="_blank" rel="noopener">Instagram</a>
+              <a
+                class="btn btn--primary"
+                id="contacto-wa"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                >Escribir por WhatsApp</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://www.instagram.com/runarka_ng/"
+                target="_blank"
+                rel="noopener"
+                >Instagram</a
+              >
             </div>
           </div>
 
