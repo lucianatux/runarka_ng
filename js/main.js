@@ -9,8 +9,9 @@ import "./layout/site-header.js";
 import "./layout/site-footer.js";
 import "./layout/cart-drawer.js";
 
-import { cargarTienda } from "./data.js";
+import { cargarTienda, cargarJSON } from "./data.js";
 import { crearCarrito } from "./cart.js";
+import { renderContenido } from "./contenido.js";
 import { crearCatalogo } from "./catalog.view.js";
 // ─── FILTRO A PRUEBA (borrar estas 2 líneas para sacarlo) ───
 import { crearFiltrosCatalogo } from "./catalog.filters.js";
@@ -32,6 +33,21 @@ async function iniciar() {
   const carrito = crearCarrito();
   const drawer = $("cart-drawer");
   drawer?.conectar({ carrito, tienda: {} });
+
+  // 1.5) Contenido editable de la página (Filosofía, bio, bienvenida…).
+  //      El texto vive en contenido.json —lo edita la clienta—, NO en
+  //      el HTML. Se dibuja donde haya un contenedor con data-contenido.
+  //      Va antes de productos.json para que se vea aunque el catálogo
+  //      falle o la página no lo tenga.
+  const montaje = $("[data-contenido]");
+  if (montaje) {
+    try {
+      const contenido = await cargarJSON("contenido.json");
+      renderContenido(montaje, contenido[montaje.dataset.contenido]?.bloques);
+    } catch (e) {
+      console.error("No se pudo cargar contenido.json", e);
+    }
+  }
 
   // 2) productos.json trae la configuración de la tienda (número de
   //    WhatsApp, moneda) y sirve para refrescar precios viejos.

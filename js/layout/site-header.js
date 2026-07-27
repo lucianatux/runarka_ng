@@ -13,6 +13,7 @@ export const LOGO_HERO = "assets/logos/logo3.png";
 
 // --- El menú del sitio. Cambiar acá cambia las 7 páginas. ---
 export const PAGINAS = [
+  { href: "index.html",     menu: "Inicio",      titulo: "Runarka" },
   { href: "filosofia.html",   menu: "Filosofía",   titulo: "Nuestra Filosofía" },
   { href: "amuletos.html",    menu: "Amuletos",    titulo: "Amuletos Personalizados" },
   { href: "colecciones.html", menu: "Colecciones", titulo: "Colecciones Runarka" },

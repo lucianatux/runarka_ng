@@ -1,0 +1,69 @@
+{
+  "_ayuda": "Este archivo tiene los TEXTOS de las páginas. Editá SOLO lo que está entre comillas. Cada página es una lista de 'bloques'. Tipos que podés usar: 'titulo' (un título), 'lead' (frase de entrada, más grande), 'parrafo' (un párrafo normal), 'cita' (frase destacada), 'lista' (con 'items'), 'imagen' (con 'src' y 'alt'; agregá \"retrato\": true si es una foto vertical), 'firma' (con 'lineas': la primera va destacada) y 'boton' (con 'texto' y 'href'). Para NEGRITA, rodeá el texto con dos asteriscos: **así**. Para agregar un párrafo, copiá un bloque {\"tipo\": \"parrafo\", \"texto\": \"...\"} y no borres las comas ni las llaves.",
+
+  "inicio": {
+    "bloques": [
+      { "tipo": "titulo", "texto": "Piedras con alma" },
+      { "tipo": "lead", "texto": "Hay objetos que se compran. Y hay otros que llegan a nuestra vida cuando estamos listos para recibirlos." },
+      { "tipo": "parrafo", "texto": "Cada amuleto reúne la astrología evolutiva, el lenguaje de las runas y la energía de las piedras naturales para acompañar procesos reales de transformación. No son adornos: son pequeños compañeros de camino, diseñados con intención, respeto y significado." },
+      { "tipo": "boton", "texto": "Conocé nuestra filosofía", "href": "filosofia.html" }
+    ]
+  },
+
+  "filosofia": {
+    "bloques": [
+      { "tipo": "imagen", "src": "assets/img/filosofia.webp", "alt": "Amuleto Runarka sobre símbolos y piedras naturales" },
+      { "tipo": "lead", "texto": "Hay objetos que se compran. Y hay otros que llegan a nuestra vida cuando estamos listos para recibirlos." },
+      { "tipo": "parrafo", "texto": "Runarka nació de esa certeza." },
+      { "tipo": "parrafo", "texto": "Cada amuleto que creo reúne la sabiduría de la astrología evolutiva, el lenguaje simbólico de las runas y la energía de las piedras naturales para acompañar procesos reales de transformación. No son accesorios ni adornos: son pequeños compañeros de camino, diseñados con intención, respeto y significado." },
+      { "tipo": "parrafo", "texto": "Creo profundamente que las piedras guardan la memoria de la Tierra. Durante millones de años fueron moldeadas por el fuego, el agua, el viento y el tiempo. Cuando llegan a nuestras manos, pueden recordarnos algo que muchas veces olvidamos: también nosotros estamos hechos para transformarnos." },
+      { "tipo": "parrafo", "texto": "Detrás de cada creación hay un estudio cuidadoso de los símbolos, los planetas, los elementos y la energía particular de cada persona. Algunos amuletos nacen de una carta natal; otros de un momento de vida, de una necesidad, de un sueño o de una intención profunda. Cada uno posee una historia, una combinación única de minerales y una runa que actúa como guía simbólica." },
+      { "tipo": "parrafo", "texto": "En Runarka no trabajamos con fórmulas iguales para todos. Cada piedra es elegida conscientemente y cada diseño busca acompañar el proceso de quien lo llevará." },
+      { "tipo": "parrafo", "texto": "Mi inspiración nace del mar, de los antiguos pueblos del norte, de los bosques, del cielo estrellado y de la convicción de que los símbolos siguen hablándonos cuando aprendemos a escucharlos." },
+      { "tipo": "parrafo", "texto": "Creo que la verdadera magia no consiste en esperar que un objeto cambie nuestra vida. **La verdadera magia comienza cuando decidimos cambiar nosotros.**" },
+      { "tipo": "parrafo", "texto": "Entonces el amuleto deja de ser un objeto y se convierte en un recordatorio cotidiano de quiénes somos, de lo que estamos construyendo y de la dirección que elegimos caminar." },
+      { "tipo": "parrafo", "texto": "Gracias por llegar hasta aquí. Ojalá encuentres ese amuleto que parezca haberte estado esperando desde siempre." },
+      { "tipo": "firma", "lineas": ["Bienvenido a Runarka.", "Piedras con alma. Guía para el camino."] }
+    ]
+  },
+
+  "contacto": {
+    "bloques": [
+      { "tipo": "imagen", "src": "assets/img/natalia.jpg", "alt": "Natalia Andrea Gentile, creadora de Runarka-ng", "retrato": true },
+      { "tipo": "titulo", "texto": "Natalia Andrea Gentile" },
+      { "tipo": "rol", "texto": "Creadora de Runarka-ng" },
+      { "tipo": "cita", "texto": "Creo en el poder de los símbolos para acompañar los procesos del alma y en la belleza de las piedras como recordatorios del camino que cada persona ha venido a recorrer." },
+      { "tipo": "parrafo", "texto": "Soy Natalia Andrea Gentile, creadora de **Runarka-ng**, un espacio donde la astrología evolutiva, la gemoterapia y el simbolismo ancestral se encuentran para dar vida a amuletos con propósito." },
+      { "tipo": "parrafo", "texto": "Mi camino profesional siempre estuvo ligado al acompañamiento de las personas. Durante muchos años me desempeñé como docente de educación secundaria, convencida de que cada ser humano posee un potencial único que puede desplegarse cuando encuentra la guía adecuada. Con el tiempo comprendí que esa misma vocación también podía expresarse desde otro lenguaje: el de los símbolos, las piedras naturales y el cielo." },
+      { "tipo": "parrafo", "texto": "Mi curiosidad y mi deseo de comprender más profundamente al ser humano me llevaron a recorrer distintos caminos de aprendizaje dentro del universo holístico. A lo largo de los años me formé en **Terapia Floral del Dr. Bach**, **Reiki**, **meditación** y **técnicas de respiración consciente**, herramientas que transformaron profundamente mi manera de entender el bienestar y el desarrollo personal." },
+      { "tipo": "parrafo", "texto": "Actualmente continúo profundizando mis estudios en **astrología evolutiva** y **gemoterapia**, disciplinas que me apasionan y que sigo explorando con la misma dedicación y humildad con la que inicié este camino." },
+      { "tipo": "parrafo", "texto": "Creo que el aprendizaje nunca termina. Cada libro, cada maestro, cada experiencia y cada persona que llega a mi vida amplían mi mirada y enriquecen la forma en que acompaño a quienes confían en Runarka-ng." },
+      { "tipo": "parrafo", "texto": "Así nació Runarka-ng. No como una marca de joyería, sino como un proyecto profundamente personal donde cada creación tiene una historia y una razón de existir." },
+      { "tipo": "parrafo", "texto": "Cada amuleto que elaboro es diseñado de manera artesanal, seleccionando cuidadosamente sus piedras por su simbolismo, sus cualidades energéticas y la armonía que pueden generar entre sí. En muchas ocasiones, las piezas nacen del estudio de la carta natal de quien las recibirá; en otras, responden a un momento particular de la vida, a un desafío, un anhelo o una transformación que necesita ser acompañada." },
+      { "tipo": "parrafo", "texto": "No me interesa ofrecer respuestas absolutas. Me interesa seguir aprendiendo para crear amuletos que acompañen a las personas con respeto, sensibilidad y significado. **Runarka-ng es también el reflejo de mi propio camino:** un camino de estudio permanente, de búsqueda y de profundo amor por el universo simbólico." },
+      { "tipo": "parrafo", "texto": "Creo profundamente que los símbolos tienen la capacidad de hablarnos cuando estamos dispuestos a escucharlos. Las runas nos recuerdan antiguos caminos de sabiduría. Las piedras conservan la memoria silenciosa de la Tierra. Los planetas nos invitan a comprender los ritmos de la vida y del alma." },
+      { "tipo": "parrafo", "texto": "Y cuando esos tres lenguajes se encuentran, nace un amuleto que no pretende cambiar a quien lo lleva, sino ayudarle a recordar su propia fuerza." },
+      { "tipo": "parrafo", "texto": "Mi mayor deseo es que cada persona que llegue a Runarka-ng encuentre mucho más que una pieza de piedras naturales. Que encuentre un símbolo que la acompañe. Un recordatorio de su propósito. Un pequeño faro para los días difíciles. Y un compañero silencioso para celebrar cada nuevo comienzo." },
+      { "tipo": "parrafo", "texto": "Porque creo que la verdadera magia no vive en las piedras. La verdadera magia vive en las personas que deciden transformar su vida con conciencia, valentía y amor." },
+      { "tipo": "firma", "lineas": ["Bienvenidos a Runarka-ng.", "Donde cada piedra guarda una historia.", "Y cada historia comienza con un alma."] }
+    ]
+  },
+
+  "amuletos": {
+    "bloques": [
+      { "tipo": "parrafo", "texto": "Estamos preparando esta sección. Muy pronto vas a poder leer acá cómo nace cada amuleto personalizado a partir de tu carta natal." }
+    ]
+  },
+
+  "runas": {
+    "bloques": [
+      { "tipo": "parrafo", "texto": "Estamos preparando esta sección. Muy pronto vas a encontrar acá el significado de cada runa y cómo acompaña a tu pieza." }
+    ]
+  },
+
+  "grimorio": {
+    "bloques": [
+      { "tipo": "parrafo", "texto": "Estamos preparando esta sección. Muy pronto vas a leer acá historias de piedras, rituales y simbolismo." }
+    ]
+  }
+}

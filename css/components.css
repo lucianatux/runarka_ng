@@ -328,3 +328,116 @@
 .badge.is-bump {
   animation: badge-bump 0.45s ease;
 }
+
+/* ---------- Contenido editable (lo dibuja contenido.js) ----------
+   El texto vive en contenido.json; la clienta edita ESE archivo.
+   Todo esto se renderiza dentro de un contenedor .prosa. */
+.prosa {
+  max-width: 62ch;
+  margin-inline: auto;
+  display: grid;
+  gap: var(--sp-3);
+}
+.prosa p {
+  color: var(--text-muted);
+}
+.prosa strong {
+  color: var(--text);
+  font-weight: 600;
+}
+/* Variante centrada (la usa la bienvenida del index) */
+.prosa.center {
+  justify-items: center;
+}
+.prosa.center p,
+.prosa.center .contenido__titulo {
+  text-align: center;
+}
+
+/* Frase de apertura, un poco más presente */
+.prosa__lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-500);
+  line-height: 1.4;
+  color: var(--text);
+}
+
+/* Título / nombre dentro del contenido */
+.contenido__titulo {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  margin-bottom: 0.15rem;
+}
+/* Bajada del título (dorado, en mayúsculas): ideal para un rol */
+.contenido__rol {
+  text-align: center;
+  margin-top: -0.2rem;
+  color: var(--accent-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-300);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Lista simple */
+.contenido__lista {
+  color: var(--text-muted);
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+/* Botón / llamada a la acción, centrado */
+.contenido__cta {
+  margin-top: var(--sp-2);
+  text-align: center;
+}
+
+/* Cierre / firma, centrado */
+.prosa__firma {
+  margin-top: var(--sp-3);
+  display: grid;
+  gap: 0.15rem;
+  text-align: center;
+}
+.prosa__firma strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-500);
+  color: var(--accent-2);
+}
+
+/* ---------- Imagen dentro del texto ---------- */
+.figura {
+  margin-inline: auto;
+  max-width: 420px;
+}
+.figura img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.figura--retrato {
+  max-width: 180px;
+}
+/*
+.figura--retrato img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-pill);
+}*/
+
+/* ---------- Frase destacada (pull quote) ---------- */
+.cita {
+  max-width: 56ch;
+  margin-inline: auto;
+  padding-left: var(--sp-3);
+  border-left: 3px solid var(--accent-2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-500);
+  line-height: 1.45;
+  color: var(--text);
+}
