@@ -309,6 +309,7 @@
   filter: var(--logo-filter) var(--logo-glow);
   transition: filter var(--transition);
   animation: logo-in 0.8s ease both;
+  border-radius: 15px;
 }
 @keyframes logo-in {
   from {

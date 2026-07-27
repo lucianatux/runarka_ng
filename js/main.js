@@ -9,6 +9,7 @@ import "./layout/site-header.js";
 import "./layout/site-footer.js";
 import "./layout/cart-drawer.js";
 
+import { initProbarFormas } from "./probar-formas.js";
 import { cargarTienda, cargarJSON } from "./data.js";
 import { crearCarrito } from "./cart.js";
 import { renderContenido } from "./contenido.js";
@@ -44,6 +45,7 @@ async function iniciar() {
     try {
       const contenido = await cargarJSON("contenido.json");
       renderContenido(montaje, contenido[montaje.dataset.contenido]?.bloques);
+      initProbarFormas();
     } catch (e) {
       console.error("No se pudo cargar contenido.json", e);
     }
