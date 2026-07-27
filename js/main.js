@@ -12,8 +12,12 @@ import "./layout/cart-drawer.js";
 import { cargarTienda } from "./data.js";
 import { crearCarrito } from "./cart.js";
 import { crearCatalogo } from "./catalog.view.js";
+// ─── FILTRO A PRUEBA (borrar estas 2 líneas para sacarlo) ───
+import { crearFiltrosCatalogo } from "./catalog.filters.js";
+import { crearFiltrosExtra } from "./catalog.filters.view.js";
 import { aLinea, tieneOpciones } from "./producto.js";
 import { initTema } from "./theme.js";
+import { initAnalytics } from "./analytics.js";
 import { pedirOpciones } from "./ui/modal-opciones.js";
 import { toast } from "./ui/toast.js";
 
@@ -21,6 +25,7 @@ const $ = (sel) => document.querySelector(sel);
 
 async function iniciar() {
   initTema();
+  initAnalytics();
 
   // 1) El carrito arranca desde localStorage: se dibuja YA, sin
   //    esperar a la red. Cada línea trae su nombre y su precio.
@@ -52,9 +57,14 @@ async function iniciar() {
   // 3) Catálogo: solo en colecciones.html
   const grid = $("#catalogo-grid");
   if (grid) {
+    // ─── FILTRO A PRUEBA (borrar hasta "FIN FILTRO A PRUEBA") ───
+    const filtroTexto = crearFiltrosCatalogo();
+    let permitidos = null;                 // null = sin filtro activo
+
     const catalogo = crearCatalogo({
       grid, filtros: $("#catalogo-filtros"),
       tienda, productos,
+      filtroExtra: (p) => permitidos === null || permitidos.has(p.id),
       onAgregar: async (p) => {
         // Sin opciones se agrega directo; con opciones, primero el modal.
         const opciones = tieneOpciones(p) ? await pedirOpciones(p, tienda) : {};
@@ -63,6 +73,21 @@ async function iniciar() {
         toast(`${p.nombre} · agregado al pedido`);
       },
     });
+
+    crearFiltrosExtra({
+      contenedor: $("#catalogo-filtros-extra"),
+      vocabulario: data.filtros,
+      alCambiar: ({ estado, piedra }) => {
+        filtroTexto.setEmocion(estado);
+        filtroTexto.setPiedra(piedra);
+        permitidos = (estado || piedra)
+          ? new Set(filtroTexto.aplicar(productos).map((p) => p.id))
+          : null;
+        catalogo.render();
+      },
+    });
+    // ─── FIN FILTRO A PRUEBA ───
+
     catalogo.renderFiltros(categorias);
     catalogo.render();
   }

@@ -1,0 +1,44 @@
+/* ============================================================
+   filters.css — Filtros de intención y piedra.
+
+   ─── MÓDULO A PRUEBA ───────────────────────────────────────
+   Archivo aparte a propósito: si la clienta no lo quiere, se
+   borra este archivo y su <link> en colecciones.html, y ningún
+   otro estilo del sitio se entera.
+   ─────────────────────────────────────────────────────────────
+   ============================================================ */
+
+.filters-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: end;
+  justify-content: center;
+  margin-bottom: var(--sp-4);
+}
+
+.filtro-extra {
+  display: grid;
+  gap: 0.25rem;
+}
+.filtro-extra label {
+  font-family: var(--font-display);
+  font-size: var(--fs-300);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.filtro-extra select {
+  font: inherit;
+  font-size: var(--fs-300);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  min-width: 11rem;
+  transition: border-color var(--transition);
+}
+.filtro-extra select:hover {
+  border-color: var(--accent);
+}

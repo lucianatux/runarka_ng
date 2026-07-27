@@ -16,7 +16,8 @@ const IMG_FALLBACK =
     '<text x="50%" y="50%" font-family="serif" font-size="16" fill="#b6a079" ' +
     'text-anchor="middle" dominant-baseline="middle">Runarka</text></svg>');
 
-export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
+export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar,
+                                filtroExtra }) {
   let categoriaActiva = "todos";
 
   function tarjeta(p) {
@@ -76,13 +77,16 @@ export function crearCatalogo({ grid, filtros, tienda, productos, onAgregar }) {
   function render() {
     const lista = productos.filter((p) =>
       p.disponible !== false &&
-      (categoriaActiva === "todos" || p.categoria === categoriaActiva));
+      (categoriaActiva === "todos" || p.categoria === categoriaActiva) &&
+      (!filtroExtra || filtroExtra(p)));   // ← FILTRO A PRUEBA (borrar esta línea)
 
     grid.replaceChildren(
       ...(lista.length
         ? lista.map(tarjeta)
-        : [Object.assign(document.createElement("p"),
-            { className: "muted center", textContent: "No hay productos en esta categoría." })])
+        : [Object.assign(document.createElement("p"), {
+            className: "muted center",
+            textContent: "No hay productos en esta categoría.",
+          })])
     );
   }
 
