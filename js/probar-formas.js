@@ -19,8 +19,4 @@ function alternar(img, alterna) {
 
 export function initProbarFormas() {
   alternar(document.querySelector(".hero__logo"), "assets/img/filosofia.webp");
-  alternar(
-    document.querySelector('[data-contenido="contacto"] .figura--retrato img'),
-    "assets/img/natalia-circle.png"
-  );
 }

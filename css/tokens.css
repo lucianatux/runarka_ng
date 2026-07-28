@@ -6,7 +6,7 @@
 
 :root {
   /* --- Paleta de marca (sacada del logo de Runarka) --- */
-  --c-sand: #efe4ce; /* fondo principal, pergamino  */
+  --c-sand: #faf7f2; /* fondo principal, pergamino  */
   --c-surface: #fbf6ec; /* tarjetas y paneles          */
   --c-surface-2: #f3ead8; /* paneles alternos / hover    */
   --c-ink: #683d13; /* texto principal             */
@@ -20,10 +20,10 @@
   --c-line: #e0d2b6; /* bordes suaves               */
   --c-danger: #b4493b;
   /* Nubes del fondo — modo claro (tonos más oscuros para que se vean) */
-  --neb-1: color-mix(in srgb, var(--accent-3) 24%, transparent);
-  --neb-2: color-mix(in srgb, var(--accent-3) 24%, transparent);
-  --neb-3: color-mix(in srgb, var(--accent-3) 24%, transparent);
-  --neb-4: color-mix(in srgb, var(--accent-3) 24%, transparent);
+  --neb-1: color-mix(in srgb, var(--accent-3) 16%, transparent);
+  --neb-2: color-mix(in srgb, var(--accent-3) 16%, transparent);
+  --neb-3: color-mix(in srgb, var(--accent-3) 16%, transparent);
+  --neb-4: color-mix(in srgb, var(--accent-3) 16%, transparent);
   /* Logo: filtro de color + glow, por tema (none = original) */
   --logo-filter: brightness(.8) contrast(1.1);
   --logo-glow: drop-shadow(0 8px 24px rgba(52, 42, 32, .20));
